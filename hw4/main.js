@@ -59,4 +59,5 @@ if (inputNumber > 1) {
       break;
     }
   }
-}
+}else{
+  alert("Number less than 2,pls write number again")}
