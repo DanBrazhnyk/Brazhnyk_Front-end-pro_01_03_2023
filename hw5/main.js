@@ -9,12 +9,9 @@ console.log("Sum array:" + sumNums);
 const positiveNums = arr.filter((item) => item >= 0);
 const sumPositiveNums =  positiveNums.reduce((sum,current)=> sum + current,0)
 console.log(
-  "Positive numbers:" +
-    positiveNums +
-    "\nAmount of positive numbers:" +
-    positiveNums.length +
-"\nSum of positive numbers:" +
-sumPositiveNums
+  "Positive numbers:" + positiveNums +
+  "\nAmount of positive numbers:" + positiveNums.length +
+  "\nSum of positive numbers:" + sumPositiveNums
 );
 
 const min = Math.min(...arr);
@@ -33,18 +30,14 @@ console.log("Maximal number:" + max + " His index:" + indexMax);
 
 const negativeNums = arr.filter((item) => item < 0);
 console.log(
-  "Negative numbers:" +
-    negativeNums +
-    "\nAmount of negative positive numbers:" +
-    negativeNums.length
+  "Negative numbers:" + negativeNums +
+  "\nAmount of negative positive numbers:" + negativeNums.length
 );
 
 const countOfUnpaired = positiveNums.filter((item) => item % 2 !== 0);
 console.log(
-  "Unpaired:" +
-    countOfUnpaired +
-    "\nAmount of unpaired positive numbers:" +
-    countOfUnpaired.length
+  "Unpaired:" + countOfUnpaired +
+  "\nAmount of unpaired positive numbers:" + countOfUnpaired.length
 );
 
 const countOfPaired = positiveNums.filter((item) => item % 2 === 0);
