@@ -31,7 +31,7 @@ console.log("Maximal number:" + max + " His index:" + indexMax);
 const negativeNums = arr.filter((item) => item < 0);
 console.log(
   "Negative numbers:" + negativeNums +
-  "\nAmount of negative positive numbers:" + negativeNums.length
+  "\nAmount of negative numbers:" + negativeNums.length
 );
 
 const countOfUnpaired = positiveNums.filter((item) => item % 2 !== 0);
@@ -42,7 +42,7 @@ console.log(
 
 const countOfPaired = positiveNums.filter((item) => item % 2 === 0);
 console.log(
-  "Paired:" + countOfPaired + "\nAmount of paired numbers:" + countOfPaired.length
+  "Paired:" + countOfPaired + "\nAmount of paired positive numbers:" + countOfPaired.length
 );
 
 const sumUnpaired = countOfUnpaired.reduce((sum, current) => sum + current, 0);
