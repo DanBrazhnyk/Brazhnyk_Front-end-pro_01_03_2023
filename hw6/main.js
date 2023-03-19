@@ -55,12 +55,12 @@ let users = [
   },
 ];
 const parseBalance = users.map((elem) => {
-  const replaceSymbol = parseFloat(
+  const replaceAndParse = parseFloat(
     elem.balance.replace("$", "").replace(",", "")
   );
   return {
     ...elem,
-    balance: replaceSymbol
+    balance: replaceAndParse
   };
 });
 const checkBalanceUser = parseBalance.filter((elem) => elem.balance > 2000);
