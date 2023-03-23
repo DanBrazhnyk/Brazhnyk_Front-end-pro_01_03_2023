@@ -1,19 +1,19 @@
 const array = [1, 2, 3, 4, 5, 6,5, 7,"a","b","b","d","b","c","b","b", 5];
-const removeElement = (arr,value) => arr.filter(elem => elem !== value);
+const removeElement = (arr,userValue) => arr.filter(elem => elem !== userValue);
 console.log(removeElement(array, 'b'));
 
 const characters = 'abcdefghijklmnopqrstuvwxyz0123456789_-==+';
-const generateKey = (size,str)=>{
-    let res ='';
-    for(let i = 0 ;i < size;i++){
-    const char = str.charAt(Math.random() * str.length);
-    res += char;
-}   return res}
+const generateKey = (sizeOfKey,inputStr)=>{
+    let generateStr ='';
+    for(let i = 0 ;i < sizeOfKey;i++){
+    const randomSymbol = inputStr.charAt(Math.random() * inputStr.length);
+    generateStr += randomSymbol;
+}   return generateStr}
 const key = generateKey(5, characters);
 console.log(key); 
 
-const cutElements=(str,userSymbols)=> {
-    return  str.split('').filter(symbol =>!userSymbols.some(elem => elem===symbol)).join('')
+const cutElements=(initialStr,userSymbols)=> {
+    return  initialStr.split('').filter(symbol =>!userSymbols.some(elem => elem===symbol)).join('')
 } 
 console.log(cutElements("hello world",['o','w']))
 
