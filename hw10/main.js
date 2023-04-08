@@ -27,7 +27,7 @@ function ezjQuery(selector) {
     return this.htmlString;
     }
 }
-    let helloList = ezjQuery('body')
+  let helloList = ezjQuery('body')
   .add('div')
   .add('ul')
   .add('li', 'Hello')
@@ -35,7 +35,7 @@ function ezjQuery(selector) {
 
 console.log(helloList);// "<body><div><ul><li>Hello</li></ul></div></body>"
 
-let bodyDiv = ezjQuery('body')
+  let bodyDiv = ezjQuery('body')
   .add('div')
   .render();
 console.log(bodyDiv);// "<body><div></div></body>"
