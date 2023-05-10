@@ -4,7 +4,7 @@ const results = document.querySelectorAll('[id^="result"]');
 const counts = Array.from(emojis).fill(0);
 
 function handleClick(index) {
-  return () => {
+return () => {
     results[index].innerText = ++counts[index];
   }
 }
