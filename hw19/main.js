@@ -4,6 +4,10 @@ const info = document.querySelector(".container__info");
 info.style.display = "none";
 infoAboutBook.style.display = "none";
 infoAboutComics.style.display = "none";
+const itemInfoElements = document.querySelectorAll(".item__info");
+itemInfoElements.forEach((element) => {
+  element.style.display = "none";
+});
 
 const catalogBook = document.querySelector(".lists__item--book");
 catalogBook.addEventListener("click", () => {
@@ -35,6 +39,7 @@ book.forEach((btn) => {
     selectedProduct = clickedItem;
     clickedItem.classList.add("selected");
     clickedItem.querySelector(".btn--buy").style.display = "none";
+    clickedItem.querySelector(".item__info").style.display = 'flex'
   });
 });
 const comics = document.querySelectorAll(".comics__item");
@@ -46,6 +51,7 @@ comics.forEach((btn) => {
     selectedProduct = clickedItem;
     clickedItem.classList.add("selected");
     clickedItem.querySelector(".btn--buy").style.display = "none";
+    clickedItem.querySelector(".item__info").style.display = 'flex'    
   });
 });
 const catalogItems = document.querySelectorAll(".catalog__list li");
@@ -55,14 +61,15 @@ catalogItems.forEach((item) => {
   });
 });
 const welcomeTitle = document.querySelector(".welcome__title");
-const btnn = document.querySelector(".submit");
-btnn.addEventListener("click", () => {
+const submitBtn = document.querySelector(".submit");
+submitBtn.addEventListener("click", () => {
   const infoBook = info.querySelectorAll(".book__item");
   infoBook.forEach((item) => {
     info.removeChild(item);
     infoAboutBook.appendChild(item);
     item.classList.remove("selected");
     item.querySelector(".btn--buy").style.display = "flex";
+    item.querySelector(".item__info").style.display = 'none'   
   });
   const infoComics = info.querySelectorAll(".comics__item");
   infoComics.forEach((item) => {
@@ -70,6 +77,7 @@ btnn.addEventListener("click", () => {
     infoAboutComics.appendChild(item);
     item.classList.remove("selected");
     item.querySelector(".btn--buy").style.display = "flex";
+    item.querySelector(".item__info").style.display = 'none' 
   });
   welcomeTitle.style.display = "flex";
   info.style.display = "none";
