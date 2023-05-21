@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>MagazineShop</title>
+    </head>
+    
+    <body>
+        <header class="header"> check your buy</header>
+        <div class="modal">
+            <form action="">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+                
+                <label for="surname">Surname</label>
+                <input type="text" id="surname" required>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>MagazineShop</title>
-</head>
+                <label for="patronymic">Patronymic</label>
+                <input type="text" id="patronymic" required>
 
-<body>
+            <label for="city">City</label>
+            <select id="city" required>
+                <option value="Warsaw">Warsaw</option>
+                <option value="London">London</option>
+                <option value="Kharkiv">Kharkiv</option>
+                <option value="Lviv">Lviv</option>
+                <option value="Barcelona">Barcelona</option>
+            </select>
+            
+            <label for="delivery">Delivery</label>
+            <input type="text" id="delivery" required>
+            
+            <label for="payment">Payment</label>
+            <select id="payment" required>
+                <option value="In cash">In cash</option>
+                <option value="By card">By card</option>
+            </select>
+            
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" min="1" placeholder="min value 1" required>
+            <label for="comment">Comment</label>
+            <textarea id="comment" cols="20" rows="5" required></textarea>
+            <input class="confirm" type="submit" id="submit" value="Confirm">
+        </form>
+    </div>
     <div class="container">
         <div class="container__catalog">
             <h1 class="catalog__title">Catalog</h1>
@@ -20,6 +57,7 @@
         </div>
         <h2 class="welcome__title">Welcome to our shop</h2>
         <div class="container__products">
+            <div class="info--about--buy"></div>
             <div class="products__book">
                 <div class="book__item">
                     <img class="item__img" src="./img/pilgrim.jpg" alt="error">

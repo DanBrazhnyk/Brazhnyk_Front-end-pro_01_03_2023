@@ -218,3 +218,74 @@ h1:hover {
   height: 2px;
   background-color: #bfe2ff;
 }
+label,
+input,
+select,
+textarea {
+  display: block;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.checks{
+  display: flex;
+}
+header{
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 12px;
+  height: 35px;
+  border: 3px black solid;
+  color: darkblue;
+  width: 200px;
+  background-color: #ee7752;
+  margin-left: 45%;
+  transition: background-color color 0.15s;
+}
+header:hover{
+background-color: #bfe2ff;
+color: #e73c7e;
+}
+.modal{
+  display: flex;
+  justify-content: center;
+  background-color: antiquewhite;
+  margin-left: 43%;
+  border: 3px blue solid;
+  border-radius: 25px;
+  width: 300px;
+}
+.info--about--buy{
+  background-color: #bfe2ff;
+  height: auto;
+  width: 500px;
+  text-align: center;
+  border: 3px black solid;
+  border-radius: 15px;
+}
+.confirm{
+  background-color: darkslategray;
+  color: cyan;
+  border:3px #ff0000 solid;
+  border-radius: 10px;
+  width: 150px;
+  height: 30px;
+  transition:background-color color 0.25s ;
+}
+.confirm:hover{
+background-color: forestgreen;
+color: salmon;
+}
+label{
+  color: maroon;
+}
+#comment,#city,#name,#delivery,#surname,#patronymic,#payment,#quantity{
+  background-color: #23d5ab;
+  border-radius: 17px;
+  resize: none;
+  color: aliceblue;
+}
