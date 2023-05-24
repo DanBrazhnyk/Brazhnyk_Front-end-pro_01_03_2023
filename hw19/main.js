@@ -33,6 +33,8 @@ catalogComics.addEventListener("click", () => {
 
 const catalog = document.querySelector(".catalog__title");
 catalog.addEventListener("click", () => {
+  catalogComics.style.display ='flex'
+  catalogBook.style.display = 'flex'
   modal.style.display = 'none';
   infoFromForm.style.display = 'none';
   welcomeTitle.style.display = "flex";
@@ -115,7 +117,11 @@ const deliveryInput = document.getElementById('delivery');
 const paymentInput = document.getElementById('payment');
 const quantityInput = document.getElementById('quantity');
 const commentInput = document.getElementById('comment');
-
+const saveItems = []
+let id = 0;
+function generateOrderId() {
+  return ++id;
+}
 confirmBtn.addEventListener('click', (event) => {
   event.preventDefault();
   const name = nameInput.value;
@@ -136,7 +142,6 @@ confirmBtn.addEventListener('click', (event) => {
     quantity,
     comment
   ];
-
   let buyDetails = "";
   const allFieldsFilled = formValues.every(value => value !== '');
   if(!allFieldsFilled ){
@@ -149,22 +154,26 @@ confirmBtn.addEventListener('click', (event) => {
   } 
   else{
   selectedProduct.forEach((item) => {
-    buyDetails += `
-      <p>Products: ${item.querySelector(".item__title").textContent}</p> 
-      <p>Name: ${name}</p>
-      <p>Surname: ${surname}</p>
-      <p>Patronymic: ${patronymic}</p>
-      <p>City: ${city}</p>
-      <p>Delivery: ${delivery}</p>
-      <p>Payment: ${payment}</p>
-      <p>Quantity: ${quantity}</p>
-      <p>Comment: ${comment}</p>
-      <hr>
-    `;
+    buyDetails +=  `<div class="order-container" data-container-id="${generateOrderId()}">
+    <p>Products: ${item.querySelector(".item__title").textContent}</p> 
+    <p>Name: ${name}</p>
+    <p>Surname: ${surname}</p>
+    <p>Patronymic: ${patronymic}</p>
+    <p>City: ${city}</p>
+    <p>Delivery: ${delivery}</p>
+    <p>Payment: ${payment}</p>
+    <p>Quantity: ${quantity}</p>
+    <p>Comment: ${comment}</p>
+    <button class="delete-btn">Delete</button>
+    <hr>
+  </div>
+`;
   });
 }
-alert('Thank you for buying in our shop,you can check your buy in main menu "check your buy"')
-  infoFromForm.innerHTML = buyDetails;
+const savedBuyDetails = localStorage.getItem('buyDetails') || ""; 
+  const newBuyDetails = savedBuyDetails + buyDetails;
+  localStorage.setItem('buyDetails', newBuyDetails);
+  alert('Thank you for buying in our shop,you can check your buy in main menu "check your buy"')
   infoFromForm.style.display = 'none';
   selectedProduct = []
   form.reset();
@@ -172,10 +181,25 @@ alert('Thank you for buying in our shop,you can check your buy in main menu "che
   checkBuy.style.display = 'flex'
   welcomeTitle.style.display = "flex";
 });
-
-checkBuy.addEventListener('click',()=>
+  checkBuy.addEventListener('click',()=>
 {
+  catalogComics.style.display ='none'
+  catalogBook.style.display = 'none'
+  const storedBuyDetails = localStorage.getItem('buyDetails');
+  infoFromForm.innerHTML = storedBuyDetails;
   welcomeTitle.style.display = "none";
   checkBuy.style.display = 'none'
   infoFromForm.style.display ='block'
+  const deleteElem = document.querySelectorAll('.delete-btn');
+  deleteElem.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const deleteButton = event.target;
+      const containerId = deleteButton.closest('.order-container').dataset.containerId;
+      const orderContainer = document.querySelector(`[data-container-id="${containerId}"]`);
+      orderContainer.parentNode.removeChild(orderContainer);
+      const storedBuyDetails = localStorage.getItem('buyDetails');
+      const updatedBuyDetails = storedBuyDetails.replace(orderContainer.outerHTML, '');
+      localStorage.setItem('buyDetails', updatedBuyDetails);
+    });
+  });
 })
